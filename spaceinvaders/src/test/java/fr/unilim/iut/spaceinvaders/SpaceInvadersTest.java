@@ -98,4 +98,41 @@ public class SpaceInvadersTest {
 		"..............V\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	}
 
+	@Test
+	public void test_VaisseauAvance_DeplacerVaisseauVersLaGauche() {
+		
+		this.spaceinvaders.positionnerUnNouveauVaisseau(7,9);
+		this.spaceinvaders.deplacerVaisseauVersLaGauche();
+		
+		assertEquals("" + 
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"......V........\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+	}
+
+	@Test
+	public void test_VaisseauImmobile_DeplacerVaisseauVersLaGauche() {
+		
+		this.spaceinvaders.positionnerUnNouveauVaisseau(0,9);
+		this.spaceinvaders.deplacerVaisseauVersLaGauche();
+		
+		assertEquals("" + 
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"V..............\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+	}
 }

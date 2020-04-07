@@ -8,9 +8,9 @@ public class SpaceInvaders {
     private static final char MARQUE_VIDE = '.';
     private static final char MARQUE_VAISSEAU = 'V';
     
-    int longueur;
-    int hauteur;
-    Vaisseau vaisseau;
+    private final int longueur;
+    private final int hauteur;
+    private Vaisseau vaisseau;
 
     public SpaceInvaders(final int longueur, final int hauteur) {
         this.longueur = longueur;
@@ -60,12 +60,16 @@ public class SpaceInvaders {
 	}
 
     private boolean estDansEspaceJeu(final int x, final int y) {
-        return (((x >= 0) && (x < longueur)) && ((y >= 0) && (y < hauteur)));
+        return (((x >= 0) && (x < this.longueur)) && ((y >= 0) && (y < this.hauteur)));
     }
 
 	public void deplacerVaisseauVersLaDroite() {
-        if (vaisseau.abscisse() < (longueur - 1)) vaisseau.seDeplacerVersLaDroite();
+        if (this.vaisseau.abscisse() < (this.longueur - 1)) this.vaisseau.seDeplacerVersLaDroite();
     }
+
+	public void deplacerVaisseauVersLaGauche() {
+        if (this.vaisseau.abscisse() > 0) this.vaisseau.seDeplacerVersLaGauche();
+	}
 
     
 }

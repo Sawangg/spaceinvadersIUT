@@ -18,21 +18,27 @@ public class Vaisseau {
 		this.x = this.x + 1;	
 	}
 
+	public void seDeplacerVersLaGauche() {
+		this.x = this.x - 1;
+	}
+
 
     public int abscisse() {
         return this.x;
     }
 
-    public void setX(int x) {
-        this.x = x;
-    }
+    public void setX(final int x) {
+		this.x = x;
+	}
 
-    public int getY() {
-        return this.y;
-    }
+	public int getY() {
+		return this.y;
+	}
 
-    public void setY(int y) {
+	public void setY(final int y) {
         this.y = y;
     }
+
+
 
 }
