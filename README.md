@@ -5,7 +5,6 @@
 - [Semaine 1 : 30/03/2020 - 05/04/2020](#semaine1)
 - [Glossaire](#glossaire)
 
----------------------
 
 ## Semaine 1 <a id="semaine1"></a>
 ### Fonctinnalité 1 : Déplacer vaisseau dans espace de jeu
@@ -36,7 +35,7 @@ Si le vaisseau se trouve sur la bordure gauche de l'espace de jeu, le vaisseau d
 
 ### Nuage de mots :
 ![Nuage de mots](img/nuageMotWeek1.png)
---------------------- 
+
 
 ## Glossaire <a id="glossaire"></a>
 
