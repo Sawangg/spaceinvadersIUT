@@ -32,7 +32,7 @@ public class Vaisseau {
 		return (abscisseLaPlusAGauche() <= x) && (x <= abscisseLaPlusADroite());
 	}
 
-	private int ordonneeLaPlusBasse() {
+	public int ordonneeLaPlusBasse() {
 		return this.origine.ordonnee() - this.dimension.hauteur() + 1;
 	}
 
@@ -50,6 +50,10 @@ public class Vaisseau {
 
 	public int longueur() {
 		return this.dimension.longueur();
+	}
+	
+	public int hauteur() {
+		return this.dimension.hauteur();
 	}
 
 	public void seDeplacerVersLaDroite() {

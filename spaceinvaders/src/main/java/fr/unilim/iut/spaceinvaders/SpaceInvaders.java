@@ -2,8 +2,10 @@ package fr.unilim.iut.spaceinvaders;
 
 import fr.unilim.iut.spaceinvaders.utils.DebordementEspaceJeuException;
 import fr.unilim.iut.spaceinvaders.utils.HorsEspaceJeuException;
+import fr.unilim.iut.spaceinvaders.moteur.Commande;
+import fr.unilim.iut.spaceinvaders.moteur.Jeu;
 
-public class SpaceInvaders {
+public class SpaceInvaders implements Jeu {
     
     private final int longueur;
     private final int hauteur;
@@ -13,6 +15,27 @@ public class SpaceInvaders {
         this.longueur = longueur;
         this.hauteur = hauteur;
     }
+    
+	public void initialiserJeu() {
+		Position positionVaisseau = new Position(this.longueur / 2, this.hauteur - 1);
+		Dimension dimensionVaisseau = new Dimension(Constante.VAISSEAU_LONGUEUR, Constante.VAISSEAU_HAUTEUR);
+		positionnerUnNouveauVaisseau(dimensionVaisseau, positionVaisseau, Constante.VAISSEAU_VITESSE);
+	 }
+	
+	@Override
+	public void evoluer(Commande commandeUser) {
+		if(commandeUser.droite) {
+			this.deplacerVaisseauVersLaDroite();
+		} else if(commandeUser.gauche) {
+            this.deplacerVaisseauVersLaGauche();
+        }
+	}
+
+	@Override
+	public boolean etreFini() {
+		return false;
+	}
+
 
     @Override
     public String toString() {
@@ -91,5 +114,9 @@ public class SpaceInvaders {
         vaisseau = new Vaisseau(dimension, position, vitesse);
         vaisseau.positionner(x, y);
 	}
+
+    public Vaisseau getVaisseau() {
+    	return this.vaisseau;
+    }
 
 }
