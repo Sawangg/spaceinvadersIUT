@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import fr.unilim.iut.spaceinvaders.utils.DebordementEspaceJeuException;
 import fr.unilim.iut.spaceinvaders.utils.HorsEspaceJeuException;
+import fr.unilim.iut.spaceinvaders.utils.MissileException;
 
 public class SpaceInvadersTest {
 	
@@ -205,5 +206,31 @@ public class SpaceInvadersTest {
        "...............\n" + 
        "VVV............\n" + 
        "VVV............\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
-     }
+	}
+	 
+	@Test
+    public void test_MissileBienTireDepuisVaisseau_VaisseauLongueurImpaireMissileLongueurImpaire() {
+
+		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7, 2), new Position(5, 9), 2);
+		this.spaceinvaders.tirerUnMissile(new Dimension(3, 2), 2);
+
+       assertEquals("" + 
+       "...............\n" + 
+       "...............\n" +
+       "...............\n" + 
+       "...............\n" + 
+       "...............\n" + 
+       "...............\n" + 
+       ".......MMM.....\n" + 
+       ".......MMM.....\n" + 
+       ".....VVVVVVV...\n" + 
+       ".....VVVVVVV...\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+	}
+	
+	@Test(expected = MissileException.class)
+	public void test_PasAssezDePlacePourTirerUnMissile_UneExceptionEstLevee() throws Exception { 
+		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7, 2),new Position(5, 9), 1);
+		this.spaceinvaders.tirerUnMissile(new Dimension(7, 9), 1);
+	}
+    
 }
