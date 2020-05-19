@@ -21,7 +21,9 @@ public class SpaceInvadersTest {
 
     @Test
     public void test_unNouveauVaisseauEstCorrectementPositionneDansEspaceJeu() {
+
 		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(1, 1), new Position(7, 9), 1);
+
         assertEquals("" + 
         "...............\n" + 
         "...............\n" +
@@ -64,7 +66,9 @@ public class SpaceInvadersTest {
 
 	@Test
 	public void test_unNouveauVaisseauAvecDimensionEstCorrectementPositionneDansEspaceJeu() {
+
 		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3, 2), new Position(7, 9), 1);
+
 		assertEquals("" + 
 		"...............\n" + 
 		"...............\n" +
@@ -120,6 +124,7 @@ public class SpaceInvadersTest {
 
 		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3, 2), new Position(7, 9), 3);
 		this.spaceinvaders.deplacerVaisseauVersLaDroite();
+		
 		assertEquals("" + 
 		"...............\n" + 
 		"...............\n" +
@@ -136,19 +141,20 @@ public class SpaceInvadersTest {
 	@Test
     public void test_VaisseauAvancePartiellement_DeplacerVaisseauVersLaDroite() {
 
-       this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3, 2), new Position(10, 9), 3);
-       this.spaceinvaders.deplacerVaisseauVersLaDroite();
-       assertEquals("" + 
-       "...............\n" + 
-       "...............\n" +
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "............VVV\n" + 
-       "............VVV\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+    	this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3, 2), new Position(10, 9), 3);
+		this.spaceinvaders.deplacerVaisseauVersLaDroite();
+	   
+		assertEquals("" + 
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"............VVV\n" + 
+		"............VVV\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	}
 	
 	@Test
@@ -195,17 +201,17 @@ public class SpaceInvadersTest {
 		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(3, 2),new Position(1, 9), 3);
 		this.spaceinvaders.deplacerVaisseauVersLaGauche();
 
-       assertEquals("" + 
-       "...............\n" + 
-       "...............\n" +
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "VVV............\n" + 
-       "VVV............\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+		assertEquals("" + 
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"VVV............\n" + 
+		"VVV............\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	}
 	 
 	@Test
@@ -214,17 +220,17 @@ public class SpaceInvadersTest {
 		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7, 2), new Position(5, 9), 2);
 		this.spaceinvaders.tirerUnMissile(new Dimension(3, 2), 2);
 
-       assertEquals("" + 
-       "...............\n" + 
-       "...............\n" +
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       "...............\n" + 
-       ".......MMM.....\n" + 
-       ".......MMM.....\n" + 
-       ".....VVVVVVV...\n" + 
-       ".....VVVVVVV...\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+		assertEquals("" + 
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		".......MMM.....\n" + 
+		".......MMM.....\n" + 
+		".....VVVVVVV...\n" + 
+		".....VVVVVVV...\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
 	}
 	
 	@Test(expected = MissileException.class)
@@ -232,5 +238,48 @@ public class SpaceInvadersTest {
 		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7, 2),new Position(5, 9), 1);
 		this.spaceinvaders.tirerUnMissile(new Dimension(7, 9), 1);
 	}
-    
+	
+	@Test
+    public void test_MissileAvanceAutomatiquement_ApresTirDepuisLeVaisseau() {
+
+		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7, 2), new Position(5, 9), 2);
+		this.spaceinvaders.tirerUnMissile(new Dimension(3, 2), 2);
+		this.spaceinvaders.deplacerMissile();
+	   
+		assertEquals("" + 
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" + 
+		".......MMM.....\n" + 
+		".......MMM.....\n" + 
+		"...............\n" + 
+		"...............\n" + 
+		".....VVVVVVV...\n" + 
+		".....VVVVVVV...\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+   }
+
+   @Test
+   public void test_MissileDisparait_QuandIlCommenceASortirDeEspaceJeu() {
+
+		this.spaceinvaders.positionnerUnNouveauVaisseau(new Dimension(7, 2), new Position(5, 9), 1);
+		this.spaceinvaders.tirerUnMissile(new Dimension(3, 2), 1);
+	   	for (int i = 1; i <= 6; i++) {
+			this.spaceinvaders.deplacerMissile();
+		}
+	   
+		this.spaceinvaders.deplacerMissile();
+	   
+		assertEquals("" +
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" +
+		"...............\n" + 
+		"...............\n" +
+		"...............\n" + 
+		".....VVVVVVV...\n" + 
+		".....VVVVVVV...\n" , this.spaceinvaders.recupererEspaceJeuDansChaineASCII());
+   }
 }

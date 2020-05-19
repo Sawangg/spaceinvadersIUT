@@ -53,17 +53,16 @@ public abstract class Sprite {
 		return this.dimension.hauteur();
 	}
 
-	public void seDeplacerVersLaDroite() {
-		this.origine.changerAbscisse(this.origine.abscisse() + this.vitesse);
+	public void deplacerHorizontalementVers(Direction direction) {
+		this.origine.changerAbscisse(this.origine.abscisse() + direction.valeur() * vitesse);
 	}
 
-	public void seDeplacerVersLaGauche() {
-		this.origine.changerAbscisse(this.origine.abscisse() - this.vitesse);
+	public void deplacerVerticalementVers(Direction direction) {
+		this.origine.changerOrdonnee(this.origine.ordonnee() + direction.valeur() * vitesse);
 	}
 
 	public void positionner(final int x, final int y) {
 		this.origine.changerAbscisse(x);
 		this.origine.changerOrdonnee(y);
 	}
-
 }

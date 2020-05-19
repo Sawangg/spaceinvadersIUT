@@ -5,7 +5,34 @@
 - [Semaine 1 : 30/03/2020 - 05/04/2020](#semaine1)
 - [Semaine 2 : 04/05/2020 - 10/05/2020](#semaine2)
 - [Semaine 3 : 11/05/2020 - 17/05/2020](#semaine3)
+- [Semaine 4 : 18/05/2020 - 24/05/2020](#semaine4)
 - [Glossaire](#glossaire)
+
+## Semaine 4 <a id="semaine4"></a>
+### Fonctionnalité 4 : Tirer un missile depuis le vaisseau
+
+- Story n°4.1 : Test pour tirer un missile.
+Mise en place d'un test pour tirer un missile depuis un vaisseau, qui échoue.
+Mise en place de méthodes pour tirer un missile, et acceptation du test.
+
+- Story n°4.2 : Position du missile.
+Réflexion sur la position du missile sur le vaisseau, puis sur l'espace de jeu ○ Mise en place d'une classe VaisseauTest pour différencier des tests de jeu.
+
+- Story n°4.3 : Paramétrage des commandes de jeu et de l'affichage du missile.
+Paramètrage des commandes de jeu.
+Dessin du missile dans l'espace de jeu.
+
+- Story n°4.4 : Déplacer le missile de manière autonome.
+Mise en place d'une classe Direction pour se débarasser des soucis d'orientation d'axes (ordonnées inversées).
+Gestion du déplacement du missile.
+Gestion de la disparition du missile en haut de l'écran.
+Gestion de la vitesse du missile.
+
+### Diagramme de classe : 
+![Diagrammes de classes semaine 4](img/diagrammeDeClassesWeek4.png)
+
+### Nuage de mots :
+![Nuage de mots 4](img/nuageMotWeek4.png)
 
 ## Semaine 3 <a id="semaine3"></a>
 ### Fonctionnalité 3 : Choisir la vitesse du vaisseau + **Implémentation du moteur graphique** 
