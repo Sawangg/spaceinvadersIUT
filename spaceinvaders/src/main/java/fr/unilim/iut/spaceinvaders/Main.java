@@ -2,9 +2,6 @@ package fr.unilim.iut.spaceinvaders;
 
 import fr.unilim.iut.spaceinvaders.moteur.MoteurGraphique;
 
-/**
- * lancement du moteur avec le jeu
- */
 public class Main {
 
 	public static void main(String[] args) throws InterruptedException {

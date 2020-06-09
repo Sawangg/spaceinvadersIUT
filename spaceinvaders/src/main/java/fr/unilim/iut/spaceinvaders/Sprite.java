@@ -10,7 +10,7 @@ public abstract class Sprite {
 		super();
 	}
 
-	public Sprite(Dimension dimension, Position origine, int vitesse) {
+	public Sprite(final Dimension dimension, final Position origine, final int vitesse) {
 		super();
 		this.dimension = dimension;
 		this.origine = origine;
@@ -53,11 +53,11 @@ public abstract class Sprite {
 		return this.dimension.hauteur();
 	}
 
-	public void deplacerHorizontalementVers(Direction direction) {
+	public void deplacerHorizontalementVers(final Direction direction) {
 		this.origine.changerAbscisse(this.origine.abscisse() + direction.valeur() * vitesse);
 	}
 
-	public void deplacerVerticalementVers(Direction direction) {
+	public void deplacerVerticalementVers(final Direction direction) {
 		this.origine.changerOrdonnee(this.origine.ordonnee() + direction.valeur() * vitesse);
 	}
 
